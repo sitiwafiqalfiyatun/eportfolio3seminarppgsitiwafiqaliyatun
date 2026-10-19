@@ -1,0 +1,256 @@
+/* ==========================================================================
+   E-PORTOFOLIO LK 3 PPG CALON GURU — SITI WAFIQ ALFIYATUN NURUR ROHMANA, S.Pd.
+   Design Identity: High-End Minimalist Editorial / Modern Framer Agency Style
+   ========================================================================== */
+
+:root {
+  --bg-primary: #FAFAFA;
+  --bg-secondary: #F4F4F5;
+  --bg-dark: #09090B;
+  --bg-dark-subtle: #18181B;
+  --text-primary: #111111;
+  --text-muted: #71717A;
+  --text-light: #F4F4F5;
+  --border-hairline: rgba(17, 17, 17, 0.1);
+  --border-hairline-dark: rgba(255, 255, 255, 0.12);
+  --accent-gold: #D4AF37;
+  --accent-emerald: #10B981;
+}
+
+/* Base resets & typography */
+html {
+  scroll-behavior: smooth;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  overflow-x: hidden;
+  selection-background-color: #111111;
+  selection-color: #ffffff;
+}
+
+::selection {
+  background: #111111;
+  color: #FAFAFA;
+}
+
+/* Serif accents */
+.font-serif-italic {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-style: italic;
+  font-weight: 500;
+}
+
+.font-editorial {
+  font-family: 'Instrument Serif', 'Playfair Display', serif;
+}
+
+/* Hairline dividers */
+.hairline-top {
+  border-top: 1px solid var(--border-hairline);
+}
+
+.hairline-bottom {
+  border-bottom: 1px solid var(--border-hairline);
+}
+
+.hairline-y {
+  border-top: 1px solid var(--border-hairline);
+  border-bottom: 1px solid var(--border-hairline);
+}
+
+.hairline-dark {
+  border-color: var(--border-hairline-dark);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #FAFAFA;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #D4D4D8;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #A1A1AA;
+}
+
+/* Reading Progress Bar */
+#reading-progress {
+  transform-origin: left;
+  transform: scaleX(0);
+  transition: transform 0.1s ease-out;
+}
+
+/* Editorial Floating Cursor / Follower (Desktop Only) */
+.floating-preview-card {
+  pointer-events: none;
+  position: fixed;
+  z-index: 50;
+  width: 280px;
+  height: 190px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.9);
+  transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.floating-preview-card.active {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+/* Hairline List Item Hover Interaction */
+.reflection-item {
+  position: relative;
+  transition: background-color 0.25s ease, padding 0.25s ease;
+}
+
+.reflection-item:hover {
+  background-color: rgba(0, 0, 0, 0.02);
+}
+
+.reflection-item .item-arrow {
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reflection-item:hover .item-arrow {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Polaroid Photo Styling */
+.polaroid-frame {
+  background: #FFFFFF;
+  padding: 12px 12px 24px 12px;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 4px;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+  will-change: transform;
+}
+
+.polaroid-frame:hover {
+  transform: scale(1.04) rotate(0deg) !important;
+  box-shadow: 0 30px 40px -10px rgba(0, 0, 0, 0.16);
+  z-index: 20;
+}
+
+.polaroid-tape {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90px;
+  height: 24px;
+  background: rgba(229, 231, 235, 0.65);
+  backdrop-filter: blur(2px);
+  border-left: 2px dashed rgba(209, 213, 219, 0.8);
+  border-right: 2px dashed rgba(209, 213, 219, 0.8);
+  z-index: 10;
+}
+
+/* 3D Tilt Card Container */
+.tilt-card {
+  perspective: 1000px;
+  transform-style: preserve-3d;
+  transition: transform 0.2s ease-out;
+}
+
+/* Giant Footer Outline & Stretched Typography */
+.footer-giant-name {
+  font-size: clamp(3.5rem, 14vw, 15rem);
+  line-height: 0.85;
+  letter-spacing: -0.04em;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #FAFAFA;
+}
+
+.footer-outline-text {
+  -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.3);
+  color: transparent;
+  transition: color 0.4s ease, -webkit-text-stroke 0.4s ease;
+}
+
+.footer-outline-text:hover {
+  color: #FAFAFA;
+  -webkit-text-stroke: 1.5px #FAFAFA;
+}
+
+/* Modal Drawer Backdrop & Slide */
+.modal-backdrop {
+  backdrop-filter: blur(8px);
+  background: rgba(9, 9, 11, 0.65);
+  transition: opacity 0.3s ease;
+}
+
+.modal-content-panel {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease;
+}
+
+/* Subtle Animated Badge Dot */
+@keyframes pulseDot {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.3);
+    opacity: 0.6;
+  }
+}
+
+.pulse-dot {
+  animation: pulseDot 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Subtle Shimmer for High-End Look */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.shimmer-text {
+  background: linear-gradient(90deg, #111111 0%, #71717A 50%, #111111 100%);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 6s infinite ease-in-out;
+}
+
+/* Print Friendly Styles */
+@media print {
+  .no-print, header, nav, #reading-progress, .floating-preview-card, footer {
+    display: none !important;
+  }
+  body {
+    background: #FFFFFF !important;
+    color: #000000 !important;
+  }
+  .hairline-top, .hairline-bottom {
+    border-color: #CCCCCC !important;
+  }
+}
